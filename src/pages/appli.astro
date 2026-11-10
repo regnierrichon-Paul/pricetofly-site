@@ -1,0 +1,63 @@
+---
+import Base from '../layouts/Base.astro';
+
+// ---------------------------------------------------------------
+// QR CODE DE L'APPLI : à brancher ici quand l'appli sera disponible.
+// 1. Remplacer le fichier public/qr-appli.svg par le vrai QR code
+//    (ou déposer un PNG dans public/ et changer QR_IMAGE).
+// 2. Passer QR_PRET à true et renseigner QR_LIEN (adresse de l'appli).
+// ---------------------------------------------------------------
+const QR_IMAGE = '/qr-appli.svg';
+const QR_PRET = false;
+const QR_LIEN = '';
+---
+<Base title="L'appli" description="Aperçu interactif de l'application PricetoFly : bascule entre Seul et À 3 pour voir jusqu'où le même budget peut t'emmener.">
+  <header class="hero">
+    <div class="wrap hero-text">
+      <p class="kicker"><span class="sticker">Bientôt</span> Application mobile</p>
+      <h1 class="display">Le voyage se choisit d'un <span class="script">swipe.</span></h1>
+    </div>
+  </header>
+
+  <section class="sec oval-bg">
+    <div class="wrap app-grid">
+      <div class="app-copy reveal">
+        <p class="lede">L'application PricetoFly est en cours de développement. Essaie l'aperçu ci-contre : bascule entre « Seul » et « À 3 » pour voir jusqu'où le même budget peut t'emmener.</p>
+        <ul class="app-list">
+          <li><svg aria-hidden="true"><use href="#i-plane" /></svg><span>Budget découpé poste par poste : transport, logement, activités, courses.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-plane" /></svg><span>Comparaison immédiate seul / à plusieurs, avec l'économie réalisée.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-plane" /></svg><span>Empreinte carbone affichée sur chaque destination, le train mis en avant.</span></li>
+          <li><svg aria-hidden="true"><use href="#i-plane" /></svg><span>Swipes limités à 10 par jour en gratuit, illimités en premium.</span></li>
+        </ul>
+        <div class="qr-slot" style="margin-top:14px">
+          {!QR_PRET && <span class="sticker">À venir</span>}
+          {QR_PRET && QR_LIEN
+            ? <a href={QR_LIEN}><img src={QR_IMAGE} alt="QR code de l'application PricetoFly" width="112" height="112"></a>
+            : <img src={QR_IMAGE} alt={QR_PRET ? "QR code de l'application PricetoFly" : "Emplacement du QR code de l'application"} width="112" height="112">}
+          <div>
+            <strong>QR code de l'application</strong>
+            <span>Disponible dès la sortie de la version de test. Bêta fermée prévue début 2027 sur les campus d'Angers.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="--d:1">
+        <div class="phone">
+          <div class="screen">
+            <div class="screen-top"><b>PricetoFly</b><span id="swipes-left">10 swipes restants</span></div>
+            <div class="toggle" role="group" aria-label="Nombre de voyageurs">
+              <button type="button" id="t-solo" aria-pressed="true">Seul</button>
+              <button type="button" id="t-group" aria-pressed="false">À 3</button>
+            </div>
+            <article class="swipe-card" id="card" aria-live="polite"></article>
+            <div class="swipe-btns">
+              <button type="button" class="no" id="btn-no" aria-label="Passer cette destination">✕</button>
+              <button type="button" class="yes" id="btn-yes" aria-label="Garder cette destination">♥</button>
+            </div>
+          </div>
+        </div>
+        <p class="phone-note">Aperçu de l'interface. Montants illustratifs, budget 400 € par personne, départ Angers.</p>
+      </div>
+    </div>
+  </section>
+</Base>

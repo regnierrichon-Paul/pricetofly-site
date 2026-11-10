@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+
+const team = [
+  { ini: 'EM', role: 'CEO', name: 'Enzo Mariller', text: 'Vision, stratégie, partenariats, recrutement.' },
+  { ini: 'PR', role: 'CFO', name: 'Paul Régnier', text: 'Finance, plan financier, levée de fonds, relations investisseurs.' },
+  { ini: 'MC', role: 'CMO', name: 'Marie Castets', text: 'Marque, acquisition, réseaux sociaux, communauté.' },
+  { ini: 'TH', role: 'CTO', name: 'Thomas Hagneré', text: 'Produit, IA, architecture technique souveraine.' },
+];
+---
+<Base title="Équipe" description="Les quatre fondateurs de PricetoFly, élèves ingénieurs des Arts et Métiers à Angers, leur pilotage agile et les outils IA utilisés.">
+  <header class="hero">
+    <div class="wrap hero-text">
+      <p class="kicker"><span class="sticker">L'équipe</span></p>
+      <h1 class="display">Quatre ingénieurs, une SAS <span class="script">angevine.</span></h1>
+      <p class="lede">Élèves ingénieurs des Arts et Métiers, campus d'Angers. Siège à Angers, lancement pilote sur les campus et le réseau Arts et Métiers.</p>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="team">
+        {team.map((m, i) => (
+          <article class="card member reveal" style={`--d:${i}`}>
+            <span class="sticker mint">{m.role}</span>
+            <div class="avatar" aria-hidden="true">{m.ini}</div>
+            <h3>{m.name}</h3>
+            <p>{m.text}</p>
+          </article>
+        ))}
+      </div>
+      <p class="agile reveal"><svg class="star" aria-hidden="true"><use href="#i-star" /></svg><span>Pilotage agile : point quotidien de 15 minutes, tableau de tâches partagé, revue à chaque fin de sprint.</span></p>
+    </div>
+  </section>
+
+  <section class="sec oval-bg" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker"><span class="sticker">Outils IA</span></p>
+        <h2 class="title">L'IA, dans le produit et dans l'atelier.</h2>
+      </div>
+      <div class="ai-grid">
+        <div class="card ai-box reveal" style="--d:0">
+          <h3>L'IA dans le produit</h3>
+          <ul>
+            <li><span>Recherche par budget : combinaison transport, logement, activités</span><b>Mistral AI</b></li>
+            <li><span>Score de compatibilité entre profils</span><b>Modèle maison</b></li>
+            <li><span>Assistant de voyage conversationnel (Tribu)</span><b>Mistral AI</b></li>
+            <li><span>Détection des faux profils et de la fraude</span><b>IA hébergée UE</b></li>
+            <li><span>Prévision des baisses de prix</span><b>IA hébergée UE</b></li>
+          </ul>
+        </div>
+        <div class="card ai-box reveal" style="--d:1">
+          <h3>L'IA qui a construit PricetoFly</h3>
+          <ul>
+            <li><span>Business plan et modèle financier</span><b>Claude</b></li>
+            <li><span>Pitch et pitch deck</span><b>Claude</b></li>
+            <li><span>Prototype du simulateur</span><b>Claude Code</b></li>
+            <li><span>Site web</span><b>Claude · Claude Code</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

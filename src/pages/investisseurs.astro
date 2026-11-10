@@ -1,0 +1,103 @@
+---
+import Base from '../layouts/Base.astro';
+
+// Utilisation des fonds (chiffres de pricetofly-v1.html, teintes de la charte)
+const funds = [
+  { label: 'Produit et technologie', value: '350 k€ · 35 %', w: 35, c: '#85D8C4' },
+  { label: 'Marketing et acquisition', value: '350 k€ · 35 %', w: 35, c: '#00A0C3' },
+  { label: 'Équipe opérationnelle', value: '150 k€ · 15 %', w: 15, c: '#FFFFFF' },
+  { label: 'Juridique, licence Atout France, garantie', value: '50 k€ · 5 %', w: 5, c: '#7CCBDD' },
+  { label: 'Réserve', value: '100 k€ · 10 %', w: 10, c: '#5C8B94' },
+];
+---
+<Base title="Investisseurs" description="Levée d'amorçage PricetoFly : 1 M€ contre 20 % du capital, prévisionnel sur 5 ans, marché, revenus, utilisation des fonds et feuille de route.">
+  <header class="hero dark">
+    <div class="wrap hero-text">
+      <p class="kicker"><span class="sticker mint">Investisseurs</span> Levée d'amorçage</p>
+      <h1 class="display">1 M€ pour devenir la <span class="script">référence</span> du voyage à budget en Europe.</h1>
+      <p class="lede">Un modèle à quatre revenus, rentable en année 3, avec une acquisition peu coûteuse grâce à l'effet de réseau des groupes.</p>
+    </div>
+  </header>
+
+  <div class="band-dark">
+    <div class="wrap">
+      <div class="inv-tiles">
+        <div class="reveal" style="--d:0"><span class="v num" data-count>1 M€</span><span class="l">recherchés contre 20 % du capital</span></div>
+        <div class="reveal" style="--d:1"><span class="v num" data-count>25 M€</span><span class="l">de chiffre d'affaires visé en année 5</span></div>
+        <div class="reveal" style="--d:2"><span class="v num">A3</span><span class="l">EBITDA positif dès l'année 3 (+639 k€)</span></div>
+        <div class="reveal" style="--d:3"><span class="v num">4,4–24</span><span class="l">ratio LTV/CAC selon la formule (seuil usuel : 3)</span></div>
+      </div>
+
+      <div class="inv-grid">
+        <div class="panel reveal">
+          <h3>Prévisionnel sur 5 ans</h3>
+          <p class="sub">Chiffre d'affaires (barres) et EBITDA par année, en millions d'euros.</p>
+          <svg id="chart" viewBox="0 0 640 330" role="img" aria-label="Chiffre d'affaires : 0,12 M€ en année 1, 1,03 M€ en année 2, 4,01 M€ en année 3, 10,9 M€ en année 4, 25,0 M€ en année 5. EBITDA : -0,46, -0,43, +0,64, +3,32, +9,53 M€."></svg>
+          <p class="source">Le chiffre d'affaires correspond à la marge conservée, distincte du volume d'affaires encaissé (262,5 M€ en année 5).</p>
+        </div>
+
+        <div class="panel reveal" style="--d:1">
+          <h3>Le marché</h3>
+          <div class="market">
+            <div><strong>Marché total (TAM)</strong><b class="num">81 Md€</b><span>Voyages de loisirs des 18-35 ans dans l'UE</span></div>
+            <div><strong>Marché adressable (SAM)</strong><b class="num">8,5 Md€</b><span>France, réservations en ligne</span></div>
+            <div><strong>Part visée (SOM)</strong><b class="num">43 M€</b><span>Volume d'affaires en année 3, soit ≈ 0,5 % du SAM</span></div>
+          </div>
+          <h3 style="margin-top:8px">Quatre sources de revenus</h3>
+          <p class="sub">Montants de l'année 5</p>
+          <ul class="rev-list">
+            <li><span>Marge sur les réservations</span><b class="num">12,5 M€</b></li>
+            <li><span>Frais de service de groupe</span><b class="num">7,58 M€</b></li>
+            <li><span>Abonnements et Pass Voyage</span><b class="num">2,75 M€</b></li>
+            <li><span>Destinations sponsorisées</span><b class="num">1,60 M€</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="inv-grid">
+        <div class="panel reveal">
+          <h3>Utilisation des fonds</h3>
+          <p class="sub">1 M€, valorisation 4 M€ pré-money, 5 M€ post-money</p>
+          <div class="funds-bar" aria-hidden="true">
+            {funds.map((f) => <i style={`width:${f.w}%;--c:${f.c}`}></i>)}
+          </div>
+          <ul class="funds-list">
+            {funds.map((f) => <li style={`--c:${f.c}`}><span>{f.label}</span><b class="num">{f.value}</b></li>)}
+          </ul>
+          <p class="source">Compléments non dilutifs visés : prêts d'honneur (Initiative France, Réseau Entreprendre), Bourse French Tech Bpifrance, statut JEI.</p>
+        </div>
+        <div class="panel reveal" style="--d:1">
+          <h3>Retour sur investissement indicatif</h3>
+          <div class="roi">
+            <span class="x num">×15</span>
+            <p>CA année 5 ≈ 25 M€, valorisé 3 fois ≈ 75 M€. Les 20 % acquis vaudraient ≈ 15 M€, avant dilution.</p>
+          </div>
+          <ul class="rev-list">
+            <li><span>Utilisateurs actifs, année 5</span><b class="num">900 000</b></li>
+            <li><span>Contribution nette, voyage de groupe à 350 €</span><b class="num">≈ 21,50 €/pers.</b></li>
+            <li><span>Trésorerie fin d'année 5</span><b class="num">13,6 M€</b></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="panel roadmap-wrap reveal">
+        <h3>Feuille de route</h3>
+        <!-- Les étapes sont reliées par une trajectoire en pointillés -->
+        <div style="position:relative">
+        <svg class="roadmap-plane" aria-hidden="true"><use href="#i-plane" /></svg>
+        <ol class="roadmap">
+          <li class="now"><span class="when">Nov. 2026</span><span class="what">Prototype du simulateur</span></li>
+          <li><span class="when">Début 2027</span><span class="what">MVP et bêta fermée sur les campus d'Angers</span></li>
+          <li><span class="when">2027</span><span class="what">Lancement France, offres premium, levée d'amorçage</span></li>
+          <li><span class="when">2028</span><span class="what">Espagne, Portugal, Italie · assistant IA · série A</span></li>
+          <li><span class="when">2036</span><span class="what">Référence européenne du voyage à budget</span></li>
+        </ol>
+        </div>
+      </div>
+
+      <div class="cta">
+        <a class="btn btn-light" href="/equipe">Rencontrer l'équipe <svg aria-hidden="true"><use href="#i-plane" /></svg></a>
+      </div>
+    </div>
+  </div>
+</Base>

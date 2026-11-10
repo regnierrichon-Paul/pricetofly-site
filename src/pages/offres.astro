@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Offres" description="Explorer, Voyageur, Tribu : les offres PricetoFly, les options et le calculateur des frais de groupe.">
+  <header class="hero">
+    <div class="wrap hero-text">
+      <p class="kicker"><span class="sticker">Offres</span></p>
+      <h1 class="display">Gratuit pour partir. Premium pour aller <span class="script">plus loin.</span></h1>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="plans">
+        <article class="card plan reveal" style="--d:0">
+          <h3>Explorer</h3>
+          <div class="price num">0 €</div>
+          <p class="yearly">Gratuit, sans engagement</p>
+          <ul>
+            <li>10 swipes par jour</li>
+            <li>Budget tout compris, seul ou en groupe</li>
+            <li>Réservation et paiement sur PricetoFly</li>
+            <li>Paiement de groupe partagé</li>
+            <li>Swipe de groupe</li>
+          </ul>
+          <p class="fee">Frais de service de groupe : 5 % (max. 25 €)</p>
+        </article>
+        <article class="card plan reveal" style="--d:1">
+          <h3>Voyageur</h3>
+          <div class="price num">4,99 € <small>/ mois</small></div>
+          <p class="yearly">ou 39,99 € par an</p>
+          <ul>
+            <li>Tout Explorer, swipes illimités</li>
+            <li class="plus">Alertes de prix</li>
+            <li class="plus">Planning jour par jour généré par IA</li>
+            <li class="plus">Organisation des activités</li>
+            <li class="plus">Partage des dépenses sur place, hors ligne</li>
+          </ul>
+          <p class="fee">Frais de service de groupe : −50 %</p>
+        </article>
+        <article class="card plan featured reveal" style="--d:2">
+          <span class="sticker">Le plus complet</span>
+          <h3>Tribu</h3>
+          <div class="price num">9,99 € <small>/ mois</small></div>
+          <p class="yearly">ou 79,99 € par an</p>
+          <ul>
+            <li>Tout Voyageur</li>
+            <li class="plus">Assistant IA 24h/24</li>
+            <li class="plus">Assistance humaine prioritaire</li>
+            <li class="plus">Voyages mystère</li>
+            <li class="plus">Filtres avancés de compagnons</li>
+            <li class="plus">Compensation carbone</li>
+            <li class="plus">Remise sur la location de voiture</li>
+          </ul>
+          <p class="fee">Frais de service de groupe : −50 %</p>
+        </article>
+      </div>
+
+      <div class="options reveal" aria-label="Options">
+        <span>Tarif étudiant −30 %</span>
+        <span>Pass Voyage 30 jours : 6,99 €</span>
+        <span>Tribu partagé, jusqu'à 4 comptes : 14,99 €/mois</span>
+        <span>Assurance annulation de groupe en option</span>
+      </div>
+
+      <div class="calc reveal">
+        <div class="calc-in">
+          <h3>Combien coûtent les frais de groupe ?</h3>
+          <p style="color:var(--ink-soft)">5 % du budget de chaque participant, plafonnés à 25 €. Payés uniquement si le groupe part.</p>
+          <div class="field">
+            <label for="f-budget">Budget par personne <output id="o-budget" for="f-budget" class="num">350 €</output></label>
+            <input type="range" id="f-budget" min="50" max="1000" step="10" value="350">
+          </div>
+          <div class="field">
+            <label for="f-people">Nombre de voyageurs <output id="o-people" for="f-people" class="num">3</output></label>
+            <input type="range" id="f-people" min="2" max="8" step="1" value="3">
+          </div>
+          <div class="field">
+            <label for="f-plan">Formule</label>
+            <select id="f-plan">
+              <option value="1">Explorer (gratuit)</option>
+              <option value="0.5">Voyageur ou Tribu (−50 %)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-out" aria-live="polite">
+          <span class="small">Frais par personne</span>
+          <div class="calc-big num" id="r-fee">17,50 €</div>
+          <div class="row"><span>Soit, en part du budget</span><b class="num" id="r-pct">5,0 %</b></div>
+          <div class="row"><span>Frais pour tout le groupe</span><b class="num" id="r-total">52,50 €</b></div>
+          <div class="row"><span>À titre de comparaison, une commission de ~18 %</span><b class="num" id="r-comp">63,00 €</b></div>
+          <p class="small">La comparaison reprend l'ordre de grandeur des frais de service des plateformes de covoiturage.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

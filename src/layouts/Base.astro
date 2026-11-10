@@ -1,0 +1,105 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = "PricetoFly part de votre budget, pas de votre destination. Dis-nous ton budget, on te dit où partir. Et avec qui, pour aller plus loin.",
+} = Astro.props;
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const links = [
+  { href: '/concept', label: 'Le concept' },
+  { href: '/appli', label: "L'appli" },
+  { href: '/offres', label: 'Offres' },
+  { href: '/confiance', label: 'Confiance & impact' },
+  { href: '/equipe', label: 'Équipe' },
+];
+
+// Transition entre pages : le contenu sort vite, puis entre en fondu + léger glissement
+// (après le passage de l'avion, voir src/scripts/site.js).
+const pageAnim = {
+  old: { name: 'ptf-out', duration: '0.22s', easing: 'ease-in', fillMode: 'both' },
+  new: { name: 'ptf-in', duration: '0.5s', easing: 'cubic-bezier(.2,.7,.2,1)', fillMode: 'both', delay: '0.28s' },
+};
+const anim = { forwards: pageAnim, backwards: pageAnim };
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title === 'Accueil' ? 'PricetoFly · Loin des yeux, près du budget.' : `${title} · PricetoFly`}</title>
+  <meta name="description" content={description}>
+  <meta name="theme-color" content="#85D8C4">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script is:inline>document.documentElement.classList.add('js');</script>
+  <ClientRouter />
+</head>
+<body>
+  <a class="skip" href="#contenu">Aller au contenu</a>
+
+  <!-- Symboles repris du logo : avion, étoile, repère de localisation -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-plane" viewBox="-30 -20 60 40"><path d="M24 0 L-4 -4 L-13 -17 L-18 -17 L-13 -4 L-20 -3 L-24 -9 L-27 -9 L-25 0 L-27 9 L-24 9 L-20 3 L-13 4 L-18 17 L-13 17 L-4 4 Z"/></symbol>
+    <symbol id="i-star" viewBox="-12 -12 24 24"><path d="M0 -11 Q1.6 -1.6 11 0 Q1.6 1.6 0 11 Q-1.6 1.6 -11 0 Q-1.6 -1.6 0 -11Z"/></symbol>
+    <symbol id="i-pin" viewBox="-14 -16 28 34"><path fill-rule="evenodd" d="M0 -14 C-8 -14 -12 -8 -12 -3 C-12 5 0 16 0 16 C0 16 12 5 12 -3 C12 -8 8 -14 0 -14Z M0 -7.5 a4.5 4.5 0 1 0 0.01 0Z"/></symbol>
+  </svg>
+
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="logo" href="/" aria-label="PricetoFly, accueil">
+        <img src="/logo-pricetofly-recadre.svg" alt="PricetoFly" width="57" height="60">
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+        <span class="bars" aria-hidden="true"></span><span>Menu</span>
+      </button>
+      <nav id="nav-menu" class="nav-menu" aria-label="Navigation principale">
+        <ul>
+          {links.map((l) => (
+            <li><a href={l.href} aria-current={path === l.href ? 'page' : undefined}>{l.label}</a></li>
+          ))}
+        </ul>
+        <a class="btn btn-dark btn-sm" href="/investisseurs" aria-current={path === '/investisseurs' ? 'page' : undefined}>Investisseurs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu" transition:animate={anim}>
+    <slot />
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span><strong>PricetoFly</strong> · SAS en création, Angers · Loin des yeux, près du budget.</span>
+      <span>Projet de startup réalisé dans le cadre de l'IAckaton Managinov 2026, Arts et Métiers Angers.</span>
+    </div>
+  </footer>
+
+  <!-- Avion de transition entre pages : reste en place d'une page à l'autre -->
+  <div id="flight" aria-hidden="true" transition:persist>
+    <svg preserveAspectRatio="none">
+      <defs>
+        <mask id="flight-mask" maskUnits="userSpaceOnUse" x="-200" y="-200" width="6000" height="6000">
+          <path class="trail-mask" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round" />
+        </mask>
+      </defs>
+      <path class="trail" fill="none" mask="url(#flight-mask)" />
+      <g class="plane"><use href="#i-plane" x="-30" y="-20" width="60" height="40" /></g>
+    </svg>
+  </div>
+
+  <div class="grain" aria-hidden="true"></div>
+
+  <script>
+    import '../scripts/site.js';
+  </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Accueil">
+  <header class="hero">
+    <div class="wrap">
+      <p class="kicker"><span class="sticker">Voyage</span> 18-35 ans · Seul ou à plusieurs</p>
+
+      <div class="orbit-zone">
+        <div class="orbit" aria-hidden="true">
+          <svg>
+            <defs>
+              <linearGradient id="orbit-grad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#00A0C3" />
+                <stop offset=".55" stop-color="#7B5BD6" />
+                <stop offset="1" stop-color="#E94B8A" />
+              </linearGradient>
+            </defs>
+            <ellipse stroke="url(#orbit-grad)" />
+            <g class="plane"><use href="#i-plane" x="-24" y="-16" width="48" height="32" /></g>
+          </svg>
+        </div>
+        <h1 class="display">Loin des yeux, près du <span class="script">budget.</span></h1>
+      </div>
+
+      <div class="hero-text">
+        <p class="lede">Dis-nous ton budget, on te dit où partir. Et avec qui, pour aller plus loin. PricetoFly calcule le voyage tout compris (transport, logement, activités, courses) et fait du partage des frais un paramètre de la recherche.</p>
+        <div class="cta" style="margin-top:4px">
+          <a class="btn btn-dark" href="/appli">Voir l'appli <svg aria-hidden="true"><use href="#i-plane" /></svg></a>
+          <a class="btn btn-light" href="/investisseurs">Dossier investisseurs</a>
+        </div>
+      </div>
+
+      <div class="board" role="img" aria-label="Tableau des départs : exemples de destinations accessibles selon le budget et le nombre de voyageurs, au départ d'Angers. Seul avec 400 euros, Porto. À trois avec 400 euros chacun, Lisbonne.">
+        <span class="sticker mint">Exemples illustratifs</span>
+        <div class="board-top">
+          <span class="board-title"><svg class="pin" aria-hidden="true"><use href="#i-pin" /></svg>DÉPARTS · ANGERS</span>
+          <span class="board-note">Budget tout compris par personne · exemples illustratifs</span>
+        </div>
+        <div class="board-head" aria-hidden="true">
+          <span>BUDGET</span><span>QUI</span><span>DESTINATION</span><span class="col-mode">VIA</span>
+        </div>
+        <div id="board-rows" aria-hidden="true"></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec oval-bg">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <svg class="star" aria-hidden="true"><use href="#i-star" /></svg>
+        <h2 class="title">Ton budget d'abord. La destination ensuite.</h2>
+        <p class="lede">PricetoFly part de votre budget, pas de votre destination.</p>
+      </div>
+      <div class="grid-3">
+        <a class="card reveal" href="/concept" style="--d:0">
+          <h3>Le concept</h3>
+          <p>Budget tout compris, seul ou en groupe. Trois étapes, de l'envie de partir jusqu'à la valise.</p>
+          <span class="go">Comprendre le concept <svg aria-hidden="true"><use href="#i-plane" /></svg></span>
+        </a>
+        <a class="card reveal" href="/appli" style="--d:1">
+          <h3>L'appli</h3>
+          <p>Le voyage se choisit d'un swipe. Bascule entre « Seul » et « À 3 » pour voir jusqu'où le même budget peut t'emmener.</p>
+          <span class="go">Essayer l'aperçu <svg aria-hidden="true"><use href="#i-plane" /></svg></span>
+        </a>
+        <a class="card reveal" href="/offres" style="--d:2">
+          <h3>Les offres</h3>
+          <p>Gratuit pour partir. Premium pour aller plus loin. Explorer, Voyageur ou Tribu.</p>
+          <span class="go">Voir les offres <svg aria-hidden="true"><use href="#i-plane" /></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec closing" style="padding-top:8px">
+    <div class="wrap reveal">
+      <h2 class="title">Parce que voyager ne devrait pas être un <span class="script">luxe.</span></h2>
+      <div class="cta">
+        <a class="btn btn-dark" href="/investisseurs">Investir dans PricetoFly</a>
+        <a class="btn btn-light" href="/appli">Découvrir l'appli</a>
+      </div>
+    </div>
+  </section>
+</Base>

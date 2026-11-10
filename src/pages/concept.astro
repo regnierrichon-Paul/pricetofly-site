@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Le concept" description="Le problème : les jeunes veulent partir, leur budget ne suit pas. La solution PricetoFly en trois étapes, et ce qui la distingue des autres services.">
+  <header class="hero">
+    <div class="wrap hero-text">
+      <p class="kicker"><span class="sticker">Le problème</span></p>
+      <h1 class="display">Les jeunes veulent <span class="script">partir.</span> Leur budget, lui, ne suit pas.</h1>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="stats">
+        <div class="stat reveal" style="--d:0"><span class="big num" data-count>90 %</span><p>des 18-35 ans prévoient de partir l'été.</p></div>
+        <div class="stat reveal" style="--d:1"><span class="big num" data-count>52 %</span><p>partent avec moins de 1 000 € en poche.</p></div>
+        <div class="stat reveal" style="--d:2"><span class="big num" data-count>45 %</span><p>se sont déjà mis à découvert pour voyager.</p></div>
+      </div>
+      <p class="source" style="margin-top:14px">Source : Plum, 2026.</p>
+
+      <div class="points">
+        <div class="reveal" style="--d:0">
+          <h3><svg class="star" aria-hidden="true"><use href="#i-star" /></svg>Les outils partent de la destination</h3>
+          <p>Les modes « budget » existants (Kayak, Skyscanner « Partout ») ne chiffrent que le vol. Le logement, les activités et les courses restent à deviner.</p>
+        </div>
+        <div class="reveal" style="--d:1">
+          <h3><svg class="star" aria-hidden="true"><use href="#i-star" /></svg>Partir seul coûte plus cher</h3>
+          <p>Logement et voiture non partagés : le prix par personne grimpe vite dès qu'on voyage sans groupe.</p>
+        </div>
+        <div class="reveal" style="--d:2">
+          <h3><svg class="star" aria-hidden="true"><use href="#i-star" /></svg>Partir avec des inconnus fait peur</h3>
+          <p>La sécurité est la première priorité de 39 % des Français qui partent en solo (eDreams).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec oval-bg right" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker"><span class="sticker mint">La solution</span></p>
+        <h2 class="title">Ton budget d'abord. La destination ensuite.</h2>
+        <p class="lede">Trois étapes, de l'envie de partir jusqu'à la valise.</p>
+      </div>
+
+      <!-- Trajectoire en pointillés qui relie les trois étapes -->
+      <svg class="traj" viewBox="0 0 1000 70" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M 60 50 C 180 -10, 300 -10, 400 36 S 600 80, 720 30 S 880 10, 960 44" />
+      </svg>
+      <div class="steps">
+        <article class="card step reveal" style="--d:0">
+          <span class="sticker n">Étape 1</span>
+          <h3>Crée ton profil</h3>
+          <p>Centres d'intérêt, rythme, style de voyage, voyage idéal. Ton identité est vérifiée : tu sais avec qui tu pars.</p>
+        </article>
+        <article class="card step reveal" style="--d:1">
+          <span class="sticker n">Étape 2</span>
+          <h3>Swipe des destinations par budget</h3>
+          <p>Budget tout compris, seul ou en groupe. Tu swipes, tes amis aussi : le swipe de groupe fait émerger la destination qui plaît à tous.</p>
+          <p class="eg">Seul avec 400 € : Porto.<br>À trois : Lisbonne, avec voiture et logement entier.</p>
+        </article>
+        <article class="card step reveal" style="--d:2">
+          <span class="sticker n">Étape 3</span>
+          <h3>Fais tes valises</h3>
+          <p>Réservation et paiement sur PricetoFly. Chacun paie sa part, l'argent est séquestré jusqu'au départ, et une assistance t'accompagne pendant le séjour.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:24px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="kicker"><span class="sticker">Pourquoi PricetoFly</span></p>
+        <h2 class="title">Chaque brique existe. Personne ne les assemble.</h2>
+        <p class="lede">PricetoFly est le seul service à faire du partage des frais un paramètre de la recherche par budget tout compris, avec un matching sur profil.</p>
+      </div>
+      <div class="table-scroll reveal" tabindex="0" role="region" aria-label="Comparatif des services">
+        <table class="compare">
+          <thead>
+            <tr><th scope="col">Service</th><th scope="col">Recherche par budget</th><th scope="col">Tout compris</th><th scope="col">Partage des frais</th><th scope="col">Compagnons sur profil</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Kayak, Skyscanner<small>Comparateurs de vols</small></th><td class="c-y">Oui</td><td class="c-p">Vol seul</td><td class="c-n">Non</td><td class="c-n">Non</td></tr>
+            <tr><th scope="row">Booking, Airbnb<small>Hébergement</small></th><td class="c-n">Non</td><td class="c-p">Logement seul</td><td class="c-n">Non</td><td class="c-n">Non</td></tr>
+            <tr><th scope="row">JoinMyTrip<small>Voyages entre inconnus</small></th><td class="c-n">Non</td><td class="c-p">Partiel</td><td class="c-p">Partiel</td><td class="c-y">Oui</td></tr>
+            <tr><th scope="row">BlaBlaCar<small>Covoiturage</small></th><td class="c-n">Non</td><td class="c-p">Trajet seul</td><td class="c-y">Oui</td><td class="c-p">Partiel</td></tr>
+            <tr class="us"><th scope="row">PricetoFly</th><td class="c-y">Oui</td><td class="c-y">Transport, logement, activités, courses</td><td class="c-y">Oui, intégré à la recherche</td><td class="c-y">Oui, identité vérifiée</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="source" style="margin-top:14px">Positionnement établi par l'équipe PricetoFly à partir des offres publiques, novembre 2026.</p>
+      <div class="cta">
+        <a class="btn btn-dark" href="/appli">Voir l'appli <svg aria-hidden="true"><use href="#i-plane" /></svg></a>
+        <a class="btn btn-light" href="/offres">Voir les offres</a>
+      </div>
+    </div>
+  </section>
+</Base>
