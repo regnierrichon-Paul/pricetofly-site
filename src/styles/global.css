@@ -431,3 +431,21 @@ input[type="range"] { width: 100%; accent-color: var(--ptf-primary); height: 28p
   .btn, a.card, .swipe-card { transition: none; }
   #flight { display: none; }
 }
+
+/* ---------- Téléchargement du business plan ---------- */
+.btn-primary { background: var(--ptf-primary); color: var(--ptf-white); border-color: var(--ptf-primary); border-radius: var(--ptf-radius); font-family: var(--ptf-font); }
+.btn-primary:hover { filter: brightness(1.08); }
+.btn-primary .dl-icon { width: 20px; height: 20px; fill: none; flex: none; }
+.download { margin-bottom: 22px; position: relative; padding-top: 30px; }
+.download .sticker { position: absolute; top: -14px; left: 20px; }
+.download-text { display: grid; gap: 8px; max-width: 62ch; }
+.download-text p { color: #d5ebe6; font-size: 15px; }
+.download-action { display: grid; gap: 8px; justify-items: start; }
+.download-action .btn { white-space: normal; text-align: left; }
+.dl-meta { font-size: 13px; color: #a9cfc9; }
+@media (min-width: 900px) {
+  .download { grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 28px; }
+  .download-action { justify-items: end; text-align: right; }
+}
+.footer-link { color: var(--ink-soft); text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 3px; }
+.footer-link:hover { color: var(--ptf-primary); }
